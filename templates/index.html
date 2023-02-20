@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Semantic Segmentation Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="/static/css/form_upload.css" rel="stylesheet">
+  </head>
+
+
+
+  <body class="text-center" bgcolor="LightGray">
+    <main class="form-upload">
+        <form  method=post enctype=multipart/form-data>
+            <h1 class="h3 mb-3 fw-normal">Please, upload your image!</h1>
+
+            <div class="form-floating">
+                <input type="file" class="form-control" id="image" name="image" required autofocus>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Predict</button>
+            <br>
+            {% if image_loc %}
+                <img class="rounded mt-3 mb-3" class="img-fluid shadow-2-strong" src="static/{{image_loc}}" width="360" alt="...">
+                <img class="rounded mt-3 mb-3" class="img-fluid shadow-2-strong" src="static/{{pred_loc}}" width="360" alt="...">
+                <h3 class="h3 mb-3 fw-normal">Individual masks</h3>
+                <img class="rounded mt-3 mb-3" class="img-fluid shadow-2-strong" src="static/{{class1}}" width="{{size1}}" alt="...">
+                <img class="rounded mt-3 mb-3" class="img-fluid shadow-2-strong" src="static/{{class2}}" width="{{size2}}" alt="...">
+                <img class="rounded mt-3 mb-3" class="img-fluid shadow-2-strong" src="static/{{class3}}" width="{{size3}}" alt="...">
+            {%endif%}
+        </form>
+    </main>
+
+
+    
+  </body>
+</html>
